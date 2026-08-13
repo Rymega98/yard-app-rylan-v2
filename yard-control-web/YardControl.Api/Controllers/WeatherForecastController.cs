@@ -6,20 +6,20 @@ namespace YardControl.Api.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries =
+    string Summary =
     [
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        { "message": "Yard Control API is running", "time": DateTime.Now }
     ];
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "Yard_API")]
     public IEnumerable<WeatherForecast> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        
+        
+            
+            return Summary;
+            
+        
+        
     }
 }
