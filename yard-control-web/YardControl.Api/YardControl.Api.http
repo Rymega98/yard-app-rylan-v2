@@ -1,0 +1,6 @@
+@YardControl.Api_HostAddress = http://localhost:5153
+
+GET {{YardControl.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

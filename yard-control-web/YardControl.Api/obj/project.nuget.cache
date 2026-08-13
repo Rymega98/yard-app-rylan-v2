@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fWYYX9ld1lk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\RylanPayne\\source\\repos\\yard-app-rylan-v2\\yard-control-web\\YardControl.Api\\YardControl.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RylanPayne\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\RylanPayne\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}
