@@ -6,20 +6,12 @@ namespace YardControl.Api.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    string Summary =
-    [
-        { "message": "Yard Control API is running", "time": DateTime.Now }
-    ];
+    private static readonly string Summaries = [{ "message:", "Yard Control API is running", "time:", dateTime.Now.ToString() }];
 
-    [HttpGet(Name = "Yard_API")]
+    [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        
-        
-            
-            return Summary;
-            
-        
-        
+        Summary = Summaries
+        return Summary
     }
 }
