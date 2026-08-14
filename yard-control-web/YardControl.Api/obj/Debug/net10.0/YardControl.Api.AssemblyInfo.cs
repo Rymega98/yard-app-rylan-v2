@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YardControl.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cde794d3760224463380c4376f6178ba10ce659")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6367165144b26e9228c9ea5983ac035ba954cb9")]
 [assembly: System.Reflection.AssemblyProductAttribute("YardControl.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YardControl.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

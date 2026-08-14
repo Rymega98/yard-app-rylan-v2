@@ -1,17 +1,21 @@
+namespace YardControl.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace YardControl.Api.Controllers;
+
 
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string Summaries = [{ "message:", "Yard Control API is running", "time:", dateTime.Now.ToString() }];
+    private readonly string Summaries =  ("message: Yard Control API is running time: " + DateTime.Now.ToString());
 
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        Summary = Summaries
-        return Summary
+        return Enumerable.Range(0, 1).Select(index => new WeatherForecast
+        {
+            Summary = Summaries
+        })
+        .ToArray();
     }
 }
