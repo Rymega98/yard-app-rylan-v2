@@ -12,6 +12,8 @@ import { JsonPipe } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('Yard Control — Training Build');
+  sekectRole = '';
+  selectRole(role: string){this.sekectRole = role}
 
   status: any = null;
 

@@ -181,6 +181,13 @@
       <h1> {{ title() }}</h1>
       <p>API Status: {{ status|json }}</p>
     
+    <h2>Choose Role</h2>
+<button (click)="selectRole('Security')">
+Security
+</button>
+<button (click)="selectRole('Dock')">
+Dock
+</button>
     
   </div>
 </main>

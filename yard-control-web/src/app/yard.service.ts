@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Trailer, Role, AssetStatus, CheckResult, ChecklistItem } from './models';
-import { signal } from '@angular/core';
+import { signal, Component } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -72,5 +72,3 @@ export class TrailerService {
     return of(existed).pipe(delay(200));
   }
 }
-
-
