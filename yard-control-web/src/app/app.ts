@@ -1,5 +1,5 @@
 import { Component, signal, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 //import { error } from 'console';
 import { JsonPipe } from '@angular/common';
@@ -11,9 +11,17 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
+  constructor(private router: Router) {}
+selectRole(role: string): void {
+localStorage.setItem('role', role);
+if (role === 'Security') {
+this.router.navigate(['/gate']);
+} else if (role === 'Dock') {
+this.router.navigate(['/dock']);}}
+
+
   protected readonly title = signal('Yard Control — Training Build');
-  sekectRole = '';
-  selectRole(role: string){this.sekectRole = role}
+  
 
   status: any = null;
 

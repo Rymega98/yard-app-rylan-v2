@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   constructor(private router: Router) {}
 selectRole(role: string): void {
+localStorage.setItem('role', role);
 if (role === 'Security') {
-this.router.navigate(['/gate']);}
-if (role === 'Dock') {
+this.router.navigate(['/gate']);
+} else if (role === 'Dock') {
 this.router.navigate(['/dock']);}}
 }

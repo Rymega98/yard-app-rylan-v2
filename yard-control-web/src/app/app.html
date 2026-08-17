@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet></router-outlet>
+<router-outlet>
 
   
 
@@ -181,11 +181,13 @@
       <h1> {{ title() }}</h1>
       <p>API Status: {{ status|json }}</p>
     
-    <h2>Choose Role</h2>
-<button routerLink="/gate">Security</button>
-
-<button routerLink="/dock">Dock</button>
-
+   <h2>Choose Role</h2>
+<button (click)="selectRole('Security')">
+Security
+</button>
+<button (click)="selectRole('Dock')">
+Dock
+</button>
     
   </div>
 </main>
@@ -199,4 +201,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-
+</router-outlet>
