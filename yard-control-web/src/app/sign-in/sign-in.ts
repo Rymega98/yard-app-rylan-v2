@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './sign-in.scss',
 })
 export class SignInComponent {
+  constructor(private router: Router) {}
+selectRole(role: string): void {
+if (role === 'Security') {
+this.router.navigate(['/gate']);}
+if (role === 'Dock') {
+this.router.navigate(['/dock']);}}
 }

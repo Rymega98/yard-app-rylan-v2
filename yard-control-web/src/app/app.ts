@@ -1,7 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { error } from 'console';
+//import { error } from 'console';
 import { JsonPipe } from '@angular/common';
 
 @Component({
