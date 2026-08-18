@@ -182,6 +182,9 @@
       <p>API Status: {{ status|json }}</p>
     
    <h2>Choose Role</h2>
+  <header class="top-bar">
+<button (click)="selectRole('Board')">Board</button>
+</header>
 <button (click)="selectRole('Security')">
 Security
 </button>

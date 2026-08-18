@@ -1,1 +1,6 @@
 <p>gate works!</p>
+@if (selectedTrailer) {
+<h2>{{ selectedTrailer.trailerNumber }}</h2>
+<p>Status: {{ selectedTrailer.status }}</p>
+<p>Spot: {{ selectedTrailer.spot }}</p>
+}

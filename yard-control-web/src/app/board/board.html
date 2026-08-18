@@ -2,6 +2,17 @@
 
 <input type="text" placeholder="Search trailer number..." [(ngModel)]="searchText"/>
 
+
+<div class="filters">
+<button (click)="statusFilter='All'">All</button>
+<button (click)="statusFilter='loading'">loading</button>
+<button (click)="statusFilter='arriving'">arriving</button>
+<button (click)="statusFilter='ready'">ready</button>
+<button (click)="statusFilter='departed'">departed</button>
+</div>
+
+
+
 <table>
 <thead>
 <tr>
@@ -13,26 +24,13 @@
 </tr>
 </thead>
 
-<div class="filters">
-
-<button (click)="statusFilter='All'">All</button>
-
-<button (click)="statusFilter='loading'">loading</button>
-
-<button (click)="statusFilter='arriving'">arriving</button>
-
-<button (click)="statusFilter='ready'">ready</button>
-
-<button (click)="statusFilter='departed'">departed</button>
-
-</div>
-
 
 <tbody>
 
 
 
-<tr *ngFor="let trailer of filteredTrailers">
+<tr *ngFor="let trailer of filteredTrailers"
+    (click)="selectTrailer(trailer)">
 <td>{{ trailer.id }}</td>
 <td>{{ trailer.trailerNumber }}</td>
 <td>{{ trailer.status }}</td>

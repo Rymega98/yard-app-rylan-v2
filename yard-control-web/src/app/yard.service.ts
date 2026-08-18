@@ -27,6 +27,13 @@ signal<Trailer[]>(MockList);
 export class TrailerService {
   // in-memory working copy so create/update/delete feel real across a session
   private trailers: Trailer[] = [...MockList];
+
+  private selectedTrailer: Trailer | null = null;
+
+  setSelectedTrailer(trailer: Trailer): void {
+    this.selectedTrailer = trailer;}
+    getSelectedTrailer(): Trailer | null {
+    return this.selectedTrailer;}
  
   /** GET /trailers */
   getTrailers(): Observable<Trailer[]> {
