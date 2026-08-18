@@ -1,1 +1,39 @@
 <p>board works!</p>
+
+<input type="text" placeholder="Search trailer number..." [(ngModel)]="searchText"/>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>TrailerNum</th>
+<th>status</th>
+<th>spot</th>
+<th>UpdatedDate</th>
+</tr>
+</thead>
+<tbody>
+
+<div class="filters">
+
+<button (click)="statusFilter='All'">All</button>
+
+<button (click)="statusFilter='Loading '">Loading</button>
+
+<button (click)="statusFilter='Arriving '">Arriving</button>
+
+<button (click)="statusFilter='Ready  '">Ready</button>
+
+<button (click)="statusFilter='Departed '">Departed</button>
+
+</div>
+
+<tr *ngFor="let trailer of filteredTrailers">
+<td>{{ trailer.id }}</td>
+<td>{{ trailer.trailerNumber }}</td>
+<td>{{ trailer.status }}</td>
+<td>{{ trailer.spot }}</td>
+<td>{{ trailer.updatedAt }}</td>
+</tr>
+</tbody>
+</table>
