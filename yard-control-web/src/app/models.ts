@@ -11,6 +11,7 @@ export interface Trailer {
   carrier?: string;
   loadRef?: string;        // BOL / load reference
   updatedAt: string;       // human readable, e.g. '12m ago'
+  checklist?: ChecklistItem[];
 }
 
 export interface ChecklistItem {
