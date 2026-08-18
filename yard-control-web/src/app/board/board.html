@@ -12,21 +12,25 @@
 <th>UpdatedDate</th>
 </tr>
 </thead>
-<tbody>
 
 <div class="filters">
 
 <button (click)="statusFilter='All'">All</button>
 
-<button (click)="statusFilter='Loading '">Loading</button>
+<button (click)="statusFilter='loading'">loading</button>
 
-<button (click)="statusFilter='Arriving '">Arriving</button>
+<button (click)="statusFilter='arriving'">arriving</button>
 
-<button (click)="statusFilter='Ready  '">Ready</button>
+<button (click)="statusFilter='ready'">ready</button>
 
-<button (click)="statusFilter='Departed '">Departed</button>
+<button (click)="statusFilter='departed'">departed</button>
 
 </div>
+
+
+<tbody>
+
+
 
 <tr *ngFor="let trailer of filteredTrailers">
 <td>{{ trailer.id }}</td>

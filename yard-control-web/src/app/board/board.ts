@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-board',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './board.html',
   styleUrl: './board.scss',
@@ -14,18 +15,17 @@ export class BoardComponent {
   searchText = '';
   statusFilter = 'All';
 
-  Trailers = MockList
+  Trailers = MockList;
 
 
   get filteredTrailers() {return this.Trailers.filter(trailer =>{
 
   const matchesSearch =
   trailer.trailerNumber
-  .toLowerCase()
-  .includes(this.searchText.toLowerCase());
+    .toLowerCase()
+    .includes(this.searchText.toLowerCase());
 
   const matchesStatus =
-  this.statusFilter === 'All' ||
-  trailer.status === this.statusFilter;
+    this.statusFilter === 'All' || trailer.status === this.statusFilter;
   return matchesSearch && matchesStatus;});
   }}
