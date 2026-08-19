@@ -26,7 +26,7 @@ export class BoardComponent {
   private router: Router
   ) {}
   
-  selectTrailer(trailer: Trailer): void {this.trailerService.setSelectedTrailer(trailer);}
+  selectTrailer(trailer: Trailer): void {this.trailerService.toggleSelectedTrailer(trailer);}
 
   
   get filteredTrailers() {return this.Trailers.filter(trailer =>{

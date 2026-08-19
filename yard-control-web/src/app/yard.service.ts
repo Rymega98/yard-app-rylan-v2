@@ -85,10 +85,12 @@ export class TrailerService {
 
   private selectedTrailer: Trailer[] = [];
 
-  setSelectedTrailer(trailer: Trailer): void {
-    this.selectedTrailer.push(trailer);}
-    getSelectedTrailer(): Trailer[] {
-    return this.selectedTrailer;}
+  toggleSelectedTrailer(trailer: Trailer): void {
+    const index = this.selectedTrailer.findIndex(
+    t => t.id === trailer.id);
+    if (index === -1) {this.selectedTrailer.push(trailer);}
+    else {this.selectedTrailer.splice(index, 1);}}
+    getSelectedTrailer(): Trailer[] {return this.selectedTrailer;}
  
   /** GET /trailers */
   getTrailers(): Observable<Trailer[]> {

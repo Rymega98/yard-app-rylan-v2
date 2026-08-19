@@ -1,6 +1,6 @@
 namespace YardControl.Api;
 
-public class WeatherForecast
+public class YardAPI
 {
     public string Summary { get; set; } = string.Empty;
 }
