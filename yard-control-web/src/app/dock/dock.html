@@ -1,1 +1,142 @@
 <p>dock works!</p>
+@if (selectedTrailer.length > 0) {
+<h2>{{ selectedTrailer[0].trailerNumber }}</h2>
+<p>Status: {{ selectedTrailer[0].status }}</p>
+<p>Spot: {{ selectedTrailer[0].spot }}</p>
+}
+<div class="gate-toggle">
+<input type="text" placeholder="Search trailer number..." [(ngModel)]="searchText"/>
+<button (click)="gateMode='Inbound'">
+
+Inbound
+
+</button>
+
+<button (click)="gateMode='Outbound'">
+
+Outbound
+
+</button>
+
+</div>
+
+<p>Current Mode: {{ gateMode }}</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Trailer</th>
+
+<th>Status</th>
+
+<th>Spot</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let trailer of filteredTrailers">
+<td>{{ trailer.trailerNumber }}</td>
+<td>{{ trailer.status }}</td>
+
+<td>{{ trailer.spot }}</td>
+</tr>
+</tbody>
+</table>
+@if (selectedTrailer) {
+
+<h3>Inspection Checklist</h3>
+<button (click)="markAllPass()">Mark All Pass</button>
+
+    @for (trailer of selectedTrailer; track trailer.id) {
+
+        <h4>{{ trailer.trailerNumber }}</h4>
+
+        <table>
+
+        <tr>
+
+        <th>Check</th>
+
+        <th>Result</th>
+
+        <th>Notes</th>
+
+        </tr>
+        
+        <th>GroupA</th>
+        <tr *ngFor="let item of trailer.checklist">
+            
+            @if (GroupA.includes(item.label)) {
+
+                <td>{{ item.label }}</td>
+
+                <td>
+
+                <select [(ngModel)]="item.result">
+
+                <option value="unset">Unset</option>
+
+                <option value="pass">Pass</option>
+
+                <option value="fail">Fail</option>
+
+                </select>
+
+                </td>
+
+                <td>
+                @if (item.result === 'fail') {
+                    <input type="text"placeholder="Failure note required"[(ngModel)]="item.note"/>
+                    @if (!item.note?.trim()) {<div style="color:red">Note is required for failed checks.</div>}
+                }
+                </td>
+            }
+        </tr>
+        <th>GroupB</th>
+        <tr *ngFor="let item of trailer.checklist">
+            @if (GroupB.includes(item.label)) {
+
+                <td>{{ item.label }}</td>
+
+                <td>
+
+                <select [(ngModel)]="item.result">
+
+                <option value="unset">Unset</option>
+
+                <option value="pass">Pass</option>
+
+                <option value="fail">Fail</option>
+
+                </select>
+
+                </td>
+
+                <td>
+                @if (item.result === 'fail') {
+                    <input type="text"placeholder="Failure note required"[(ngModel)]="item.note"/>
+                    @if (!item.note?.trim()) {<div style="color:red">Note is required for failed checks.</div>}
+                }
+                </td>
+            }
+        </tr>
+
+
+    </table>
+    }
+}
+<button
+[disabled]="!canMarkReady()"
+(click)="processTrailerReady()">
+Mark Ready for Security
+</button>
+@if (successMessage) {
+<div class="success">
+{{ successMessage }}
+</div>}

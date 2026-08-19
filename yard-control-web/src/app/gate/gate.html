@@ -69,30 +69,31 @@ Outbound
         </tr>
 
         <tr *ngFor="let item of trailer.checklist">
+            @if (item.label !== 'Exterior' && item.label !== 'Cargo'){
 
-            <td>{{ item.label }}</td>
+                <td>{{ item.label }}</td>
 
-            <td>
+                <td>
 
-            <select [(ngModel)]="item.result">
+                <select [(ngModel)]="item.result">
 
-            <option value="unset">Unset</option>
+                <option value="unset">Unset</option>
 
-            <option value="pass">Pass</option>
+                <option value="pass">Pass</option>
 
-            <option value="fail">Fail</option>
+                <option value="fail">Fail</option>
 
-            </select>
+                </select>
 
-            </td>
+                </td>
 
-            <td>
-            @if (item.result === 'fail') {
-                <input type="text"placeholder="Failure note required"[(ngModel)]="item.note"/>
-                @if (!item.note?.trim()) {<div style="color:red">Note is required for failed checks.</div>}
+                <td>
+                @if (item.result === 'fail') {
+                    <input type="text"placeholder="Failure note required"[(ngModel)]="item.note"/>
+                    @if (!item.note?.trim()) {<div style="color:red">Note is required for failed checks.</div>}
+                }
+                </td>
             }
-            </td>
-
         </tr>
 
     </table>
