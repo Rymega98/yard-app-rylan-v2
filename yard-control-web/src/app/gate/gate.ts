@@ -34,10 +34,11 @@ if (this.selectedTrailer.length === 0)
   {return false;}
 
 return this.selectedTrailer.every(trailer =>trailer.checklist?.every(item => {
+  if (
+  item.label === 'Exterior' ||
+  item.label === 'Cargo') {return true;}
   if (item.result === 'unset') {return false;}
-
-  if (item.result === 'fail' &&(!item.note || !item.note.trim())) {return false;}
-
+  if (item.result === 'fail' && (!item.note || !item.note.trim())) {return false;}
   return true;}) ?? false);}
 
 processTrailer(): void {if (this.selectedTrailer.length === 0) {return;}

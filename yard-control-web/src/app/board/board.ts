@@ -19,7 +19,10 @@ export class BoardComponent {
   searchText = '';
   statusFilter = 'All';
 
-  Trailers = MockList;
+  Trailers: Trailer[] = [];
+
+
+
 
   constructor(
   private trailerService: TrailerService,
@@ -27,6 +30,10 @@ export class BoardComponent {
   ) {}
   
   selectTrailer(trailer: Trailer): void {this.trailerService.toggleSelectedTrailer(trailer);}
+
+  ngOnInit(): void {
+this.trailerService.getTrailers().subscribe(
+trailers => {this.Trailers = trailers;});}
 
   
   get filteredTrailers() {return this.Trailers.filter(trailer =>{

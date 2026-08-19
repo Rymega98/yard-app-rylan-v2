@@ -134,7 +134,7 @@ Outbound
 <button
 [disabled]="!canMarkReady()"
 (click)="processTrailerReady()">
-Mark Ready for Security
+{{ gateMode === 'Inbound' ? 'Ready' : 'Release' }}
 </button>
 @if (successMessage) {
 <div class="success">
