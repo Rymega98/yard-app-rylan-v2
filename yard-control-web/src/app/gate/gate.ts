@@ -25,8 +25,8 @@ export class GateComponent {
 
 constructor(private trailerService: TrailerService) {}
 ngOnInit(): void {
-this.selectedTrailer =
-this.trailerService.getSelectedTrailer();}
+this.selectedTrailer = this.trailerService.getSelectedTrailer();
+this.trailerService.setLastPage('gate');}
 
 
 canProcessTrailer(): boolean {

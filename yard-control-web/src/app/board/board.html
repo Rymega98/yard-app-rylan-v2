@@ -26,7 +26,8 @@
 
 
 <tbody>
-
+@if (filteredTrailers.length === 0) {
+<p>No trailers matching this ID present.</p>}
 
 
 <tr *ngFor="let trailer of filteredTrailers"

@@ -82,8 +82,11 @@ signal<Trailer[]>(MockList);
 export class TrailerService {
   // in-memory working copy so create/update/delete feel real across a session
   private trailers: Trailer[] = [...MockList];
-
+  private lastPage: 'signin' | 'board' | 'gate' | 'dock' | null = null;
   private selectedTrailer: Trailer[] = [];
+
+  setLastPage(page: 'signin' | 'board' | 'gate' | 'dock'): void {this.lastPage = page;}
+  getLastPage(): 'signin' | 'board' | 'gate' | 'dock' | null {return this.lastPage;}
 
   toggleSelectedTrailer(trailer: Trailer): void {
     const index = this.selectedTrailer.findIndex(
@@ -96,6 +99,8 @@ export class TrailerService {
   getTrailers(): Observable<Trailer[]> {
     return of([...this.trailers]).pipe(delay(300));
   }
+
+  getCurrentTrailers(): Trailer[] {return [...this.trailers];}
  
   /** GET /trailers/:id */
   getTrailerById(id: string): Observable<Trailer | undefined> {

@@ -27,13 +27,17 @@ export class BoardComponent {
   constructor(
   private trailerService: TrailerService,
   private router: Router
-  ) {}
+  ) {this.Trailers = [...this.trailerService.getCurrentTrailers()];}
+
+  
+  
   
   selectTrailer(trailer: Trailer): void {this.trailerService.toggleSelectedTrailer(trailer);}
 
   ngOnInit(): void {
 this.trailerService.getTrailers().subscribe(
-trailers => {this.Trailers = trailers;});}
+trailers => {this.Trailers = trailers;});
+this.trailerService.setLastPage('board');}
 
   
   get filteredTrailers() {return this.Trailers.filter(trailer =>{
