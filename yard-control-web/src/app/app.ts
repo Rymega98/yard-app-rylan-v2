@@ -27,7 +27,7 @@ this.router.navigate(['/board']);}}
   status: any = null;
 
   private http = inject(HttpClient);
-  ngOnInit() {this.http.get('http://localhost:5153/WeatherForecast').subscribe({
+  ngOnInit() {this.http.get('http://localhost:5153/YardAPI').subscribe({
     next: (data) => {this.status = data;},
     error: (err) => console.error('API Error:', err)
   });}
