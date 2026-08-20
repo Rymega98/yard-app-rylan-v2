@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TrailerService, MockList } from '../yard.service';
+import { Component, signal } from '@angular/core';
+import { TrailerService } from '../yard.service';
 import { AssetStatus, Trailer } from '../models';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,15 +18,17 @@ export class GateComponent {
 
   gateMode: 'Inbound' | 'Outbound' = 'Inbound';
   searchText = '';
-  Trailers = MockList;
+  Trailers: Trailer[] = [];
   selectedTrailer: Trailer[] = [];
   successMessage = '';
-
+  
 
 constructor(private router: Router,private trailerService: TrailerService) {}
 ngOnInit(): void {
 this.selectedTrailer = this.trailerService.getSelectedTrailer();
-this.trailerService.setLastPage('gate');}
+this.trailerService.setLastPage('gate');
+this.trailerService.getTrailers().subscribe(data => {
+this.Trailers = data;});}
 
 
 canProcessTrailer(): boolean {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TrailerService, MockList } from '../yard.service';
+import { TrailerService,  } from '../yard.service';
 import { AssetStatus, Trailer } from '../models';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class DockComponent {
   gateMode: 'Inbound' | 'Outbound' = 'Inbound';
   searchText = '';
-  Trailers = MockList;
+  Trailers: Trailer[] = [];
   selectedTrailer: Trailer[] = [];
   successMessage = '';
 
@@ -26,7 +26,7 @@ export class DockComponent {
   constructor(private router: Router,private trailerService: TrailerService) {}
   ngOnInit(): void {
   this.selectedTrailer =  this.trailerService.getSelectedTrailer();
-  this.trailerService.setLastPage('dock');}
+  this.trailerService.setLastPage('dock');this.trailerService.getTrailers().subscribe(data => {this.Trailers = data;});}
   
   
   canMarkReady(): boolean {

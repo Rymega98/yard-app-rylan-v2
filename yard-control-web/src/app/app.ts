@@ -3,7 +3,8 @@ import { RouterOutlet, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 //import { error } from 'console';
 import { JsonPipe } from '@angular/common';
-
+import { TrailerService} from './yard.service';
+import { Trailer } from './models';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, JsonPipe],
@@ -11,7 +12,8 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
-  constructor(private router: Router) {}
+  
+  constructor(private router: Router,private trailerService: TrailerService) {}
 
 
   protected readonly title = signal('Yard Control — Training Build');
@@ -23,7 +25,8 @@ export class App {
   ngOnInit() {this.http.get('http://localhost:5153/YardAPI').subscribe({
     next: (data) => {this.status = data;},
     error: (err) => console.error('API Error:', err)
-  });}
-}
+  }),this.trailerService.loadTrailers();};}
+  
+
 
 

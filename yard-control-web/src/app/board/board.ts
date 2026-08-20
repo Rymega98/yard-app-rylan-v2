@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MockList, TrailerService} from '../yard.service';
+import { TrailerService} from '../yard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -27,7 +27,7 @@ export class BoardComponent {
   constructor(
   private trailerService: TrailerService,
   private router: Router
-  ) {this.Trailers = [...this.trailerService.getCurrentTrailers()];}
+  ) {this.Trailers = [...this.trailerService.getCurrentTrailers()];this.trailerService.getTrailers().subscribe(data => {this.Trailers = data;});}
 
   
   
