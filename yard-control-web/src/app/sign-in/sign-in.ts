@@ -18,5 +18,10 @@ localStorage.setItem('role', role);
 if (role === 'Security') {
 this.router.navigate(['/gate']);
 } else if (role === 'Dock') {
-this.router.navigate(['/dock']);}}
+this.router.navigate(['/dock']);}
+else if (role === 'Board') {
+this.router.navigate(['/board']);}}
+
+
+
 }

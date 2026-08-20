@@ -50,5 +50,11 @@ this.trailerService.setLastPage('board');}
 
   const matchesStatus =
     this.statusFilter === 'All' || trailer.status.toLowerCase() === this.statusFilter.toLowerCase();
-  return matchesSearch && matchesStatus;});
-  }}
+  return matchesSearch && matchesStatus;});  }
+  selectRole(role: string): void {
+localStorage.setItem('role', role);
+if (role === 'Security') {
+this.router.navigate(['/gate']);
+} else if (role === 'Dock') {
+this.router.navigate(['/dock']);}}
+}

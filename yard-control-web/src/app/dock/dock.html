@@ -1,4 +1,5 @@
-<p>dock works!</p>
+<header class="top-bar">
+<button (click)="selectRole('Board')">Board</button>
 @if (selectedTrailer.length > 0) {
 <h2>{{ selectedTrailer[0].trailerNumber }}</h2>
 <p>Status: {{ selectedTrailer[0].status }}</p>

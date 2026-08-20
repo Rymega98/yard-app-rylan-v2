@@ -12,14 +12,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class App {
   constructor(private router: Router) {}
-selectRole(role: string): void {
-localStorage.setItem('role', role);
-if (role === 'Security') {
-this.router.navigate(['/gate']);
-} else if (role === 'Dock') {
-this.router.navigate(['/dock']);}
-else if (role === 'Board') {
-this.router.navigate(['/board']);}}
+
 
   protected readonly title = signal('Yard Control — Training Build');
   

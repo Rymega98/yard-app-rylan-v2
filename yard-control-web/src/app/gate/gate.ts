@@ -23,7 +23,7 @@ export class GateComponent {
   successMessage = '';
 
 
-constructor(private trailerService: TrailerService) {}
+constructor(private router: Router,private trailerService: TrailerService) {}
 ngOnInit(): void {
 this.selectedTrailer = this.trailerService.getSelectedTrailer();
 this.trailerService.setLastPage('gate');}
@@ -82,5 +82,9 @@ this.gateMode === 'Inbound'
 : trailer.status === 'departed';
 return matchesSearch && matchesMode;
 });
-   
-}}
+  }
+selectRole(role: string): void {
+localStorage.setItem('role', role);
+if  (role === 'Board') {
+this.router.navigate(['/board']);}}
+}
