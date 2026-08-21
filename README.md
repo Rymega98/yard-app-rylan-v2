@@ -25,3 +25,11 @@ training and excercise building apps isolated from value-truck-yard
 /dock judges that the trailers are ready to go
 
 # All of this runs of MOCK DATA
+mockdata is sent from the API to the website
+
+
+# Navigation
+When entering the site you will default to sign in
+from sign in you can go into board, security, and dock
+then security and dock can only go into board
+board then goes into both security and dock

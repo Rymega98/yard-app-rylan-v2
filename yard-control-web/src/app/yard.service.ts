@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class TrailerService {
   
   
-  private apiUrl = "http://localhost:5153/YardAPI";
+  private apiUrl = "http://localhost:5153/YardAPI/trailers";
   
   constructor(private http: HttpClient) {}
     getTrailers(): Observable<Trailer[]> {
@@ -85,4 +85,5 @@ this.trailers.set(data);
     this.trailerCache = this.trailerCache.filter(t => t.id !== id);
     return of(existed).pipe(delay(200));
   }
+  gOnInit(): void {this.loadTrailers();}
 }

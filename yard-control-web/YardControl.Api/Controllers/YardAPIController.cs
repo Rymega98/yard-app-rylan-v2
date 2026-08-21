@@ -1,6 +1,6 @@
 namespace YardControl.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
-
+using YardControl.Api;
 
 
 [ApiController]
@@ -20,77 +20,383 @@ public class YardAPIController : ControllerBase
         })
         .ToArray();
     }
-    [HttpGet(Name = "GetYardAPI")]
+    [HttpGet("trailers")]
     public ActionResult<List<Trailer>> GetTrailers()
     {
         var trailers = new List<Trailer>
         {
             new Trailer
             {
-                {id: "53154",trailerNumber: "VT-53154",  status: 'ready', spot: "S-140", updatedAt: "8/17/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+                Id = "53154",
+                TrailerNumber = "VT-53154",
+                Status = "ready",
+                Spot = "S-140",
+                UpdatedAt = "8/17/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"},
 
-                {id: "94032",trailerNumber: "VT-94032",  status: 'arriving', spot: "S-134", updatedAt: "8/15/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"},
 
-                {id: "71347",trailerNumber: "VT-71347",  status: 'loading', spot: "S-654", updatedAt: "8/16/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
 
-                {id: "13425",trailerNumber: "VT-13425",  status: 'ready', spot: "S-184", updatedAt: "8/17/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+            new Trailer
+            {
+                Id = "94032",
+                TrailerNumber = "VT-94032",  
+                Status = "arriving", 
+                Spot = "S-134", 
+                UpdatedAt = "8/15/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"},
 
-                {id: "82363",trailerNumber: "VT-82363",  status: 'arriving', spot: "S-442", updatedAt: "8/15/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"},
 
-                {id: "24145",trailerNumber: "VT-24145",  status: 'loading', spot: "S-654", updatedAt: "8/16/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
+            new Trailer
+            {
+                Id = "71347",
+                TrailerNumber = "VT-71347",  
+                Status = "loading", 
+                Spot = "S-654", 
+                UpdatedAt = "8/16/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
+            new Trailer
+            {
+                Id = "13425",
+                TrailerNumber = "VT-13425",  
+                Status = "ready", 
+                Spot = "S-184", 
+                UpdatedAt = "8/17/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }} },
+            new Trailer
+            {
+                Id = "82363",
+                TrailerNumber = "VT-82363",  
+                Status = "arriving", 
+                Spot = "S-442", 
+                UpdatedAt = "8/15/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
+            new Trailer
+            {
+                Id = "24145",
+                TrailerNumber = "VT-24145",  
+                Status = "loading", 
+                Spot = "S-654", 
+                UpdatedAt = "8/16/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
+            new Trailer
+            {
+                Id = "65109",
+                TrailerNumber = "VT-65109",  
+                Status = "departed", 
+                Spot = "S-983", 
+                UpdatedAt = "8/18/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
+            new Trailer
+            {
+                Id = "38452",
+                TrailerNumber = "VT-38452",  
+                Status = "departed", 
+                Spot = "S-753", 
+                UpdatedAt = "8/18/2026",
+                Checklist = new List<ChecklistItem>{
+                    new ChecklistItem
+                    {
+                        Key = "seal",
+                        Label = "Seal Intact",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Trailer number matches",
+                        Label = "Trailer number matches",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "No visible damage",
+                        Label = "No visible damage",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Exterior",
+                        Label = "Exterior",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "Cargo",
+                        Label = "Cargo",
+                        Result = "unset"
+                    },
+                    new ChecklistItem
+                    {
+                        Key = "doors secure",
+                        Label = "Doors secure",
+                        Result = "unset"
+                    }
+                }
+            },
 
-                {id: "65109",trailerNumber: "VT-65109",  status: 'departed', spot: "S-983", updatedAt: "8/18/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] },
-
-                {id: "38452",trailerNumber: "VT-38452",  status: 'departed', spot: "S-753", updatedAt: "8/18/2026",checklist: [
-                { key: "seal", label: "Seal Intact", result: "unset" },
-                { key: "Trailer number matches", label: "Trailer number matches", result: "unset" },
-                { key: "No visible damage", label: "No visible damage", result: "unset" },
-                { key: "Exterior", label: "Exterior", result: "unset" },
-                { key: "Cargo", label: "Cargo", result: "unset" },
-                { key: "doors secure", label: "Doors secure", result: "unset" },] }
-            }
         };
-        return Ok(MockList);
+        return Ok(trailers);
     }
+
+
+
+}
